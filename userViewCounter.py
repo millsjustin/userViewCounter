@@ -3,11 +3,9 @@ from flask import Flask, request, redirect, render_template, Markup, flash
 import plotly.offline as pyoffline
 import plotly.graph_objs as go
 import re
-import os
 
 # setup Flask
 app = Flask(__name__)
-assert os.path.exists('secret.key')
 with open('secret.key', 'rb') as key_file:
     app.secret_key = key_file.read()
 
