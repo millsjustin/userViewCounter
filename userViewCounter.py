@@ -3,7 +3,6 @@ from flask import Flask, request, redirect, render_template, Markup, flash
 import plotly.offline as pyoffline
 import plotly.graph_objs as go
 import re
-import secrets
 import os
 
 # setup Flask
