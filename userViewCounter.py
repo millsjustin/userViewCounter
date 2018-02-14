@@ -4,10 +4,13 @@ import plotly.offline as pyoffline
 import plotly.graph_objs as go
 import re
 import secrets
+import os
 
 # setup Flask
 app = Flask(__name__)
-app.secret_key = secrets.token_bytes(32)
+assert os.path.exists('secret.key')
+with open('secret.key', 'rb') as key_file:
+    app.secret_key = key_file.read()
 
 # define a user tuple with username and page view count
 User = namedtuple('User', ['name', 'count'])
