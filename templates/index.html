@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User View Counter</title>
+    <link rel="stylesheet" href="https://cdn.shoelace.style/1.0.0-beta24/shoelace.css">
+    <script>
+        function displayFilename () {
+            document.getElementById('file-text').value = document.getElementById('file-button').value;
+        };
+    </script>
+</head>
+<body>
+<header class="text-center mar-lg">
+    <h1>Hello Puru</h1>
+</header>
+
+<div class="container">
+    <div class="row row-center">
+        <p>Here is my take on the given assignment. I hope it's what you're looking for.</p>
+    </div>
+    <div class="row row-center">
+        <p>Take a look at the <a href="https://github.com/millsjustin/userViewCounter">source code</a></p>
+    </div>
+    <div class="row row-center">
+        <form method="post" enctype="multipart/form-data" action="/results" class="w-50">
+            <div class="input-group">
+                        <span class="file-button">
+                            <input type="file" id="file-button" name="file-button" onchange="displayFilename()">
+                            <label class="button" for="file-button">Select Log File</label>
+                        </span>
+                <input type="text" disabled="" id="file-text" title="file-text"/>
+                <button type="submit" class="button">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="row row-center">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-warning">{{ message }}</div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </div>
+</div>
+</body>
+</html>
