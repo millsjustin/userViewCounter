@@ -57,7 +57,7 @@ def index():
     """
     :return: the root index template
     """
-    return render_template('index.html')
+    return render_template('index.html', regex=log_line_re.pattern)
 
 
 @app.route('/results', methods=['GET', 'POST'])
