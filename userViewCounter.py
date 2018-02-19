@@ -80,8 +80,7 @@ def results():
             top_users_list = []
             names = []
             counts = []
-            for element in top_users:
-                name, count = element
+            for name, count in top_users:
                 names.append(name)
                 counts.append(count)
                 top_users_list.append(User(name, count))
